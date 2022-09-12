@@ -11,7 +11,7 @@ public class BitStuffing {
             inArr[i] = input.next().charAt(0);
         }
         int k=5;
-        System.out.print("DeStuffing: ");
+        System.out.print("Before: ");
         System.out.println(bitStuffing(inArr,k));
     }
     static char[] bitStuffing(char[] inArr,int k) {
@@ -25,25 +25,25 @@ public class BitStuffing {
                 break;
             }
             if(inArr[j]=='1') {
-                count++;
+                ++count;
             }
-            if(inArr[j]=='0') {
-                count = 0;
-            }
-            if(count==k+1) {
-                outArr[i]='0';
+            else {
                 count=0;
+            }
+            if(count==k) {
+                outArr[i]='0';
                 deFraming[i]=true;
-                i++;
+                count=0;
+                ++i;
             }
             else {
                 outArr[i]=inArr[j];
-                i++;
-                j++;
+                ++i;
+                ++j;
             }
         }
         System.out.println(deStuffing(outArr, deFraming,k));
-        System.out.print("Bit Stuffing: ");
+        System.out.print("After: ");
         return outArr;
     }
     static char[] deStuffing(char[] outArr,boolean[] deFraming,int k) {
