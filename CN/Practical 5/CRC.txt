@@ -1,0 +1,23 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Data: ");
+        String data = input.next();
+        System.out.print("Divisor: ");
+        String divisor = input.next();
+        CRC(data,divisor);
+    }
+    static void CRC(String data,String divisor) {
+        for(int i=0;i<divisor.length()-1;i++) {
+            data+="0";
+        }
+        int dividend = Integer.parseInt(data,2);
+        int divisorr = Integer.parseInt(divisor,2);
+        String remainder = Integer.toBinaryString((dividend%divisorr)-1);
+        System.out.print(remainder);
+        
+    }
+}
